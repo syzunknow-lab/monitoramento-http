@@ -1,0 +1,22 @@
+from flask import Flask, request
+from datetime import datetime
+import requests
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    ip = request.remote_addr
+    user_agent = request.headers.get("User-Agent")
+    time = datetime.now()
+
+    print("===== NEW ACCESS =====")
+    print(f"IP: {ip}")
+    print(f"User-Agent: {user_agent}")
+    print(f"Time: {time}")
+    print("======================")
+
+    return "VLW PELO IP, TU C FUDEO JAE? KKKKKKKKKKKK"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
